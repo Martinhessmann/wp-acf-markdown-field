@@ -1,8 +1,11 @@
 {
+  "name": "wp-acf-markdown-field",
+  "version": "1.0.6",
   "private": true,
   "scripts": {
     "dev": "mix",
-    "build": "mix --production"
+    "build": "mix --production",
+    "release": "bash create-release.sh"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.39",

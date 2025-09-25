@@ -37,3 +37,49 @@ composer require freshsystems/wp-acf-markdown-field
 ```
 
 If you're not using [Composer with WordPress](https://roots.io/bedrock-vs-regular-wordpress-install/), you can alternatively download the ZIP archive from the [releases](https://github.com/freshsystems/wp-acf-markdown-field/releases) page and upload/install the plugin manually.
+
+## Development
+
+This is a forked version maintained for the easyCredit project with custom build scripts.
+
+### Building the Plugin
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Build assets for development:
+   ```bash
+   npm run dev
+   ```
+
+3. Build assets for production:
+   ```bash
+   npm run build
+   ```
+
+### Creating Release Packages
+
+To create a WordPress-ready ZIP file for installation:
+
+```bash
+npm run release
+```
+
+This will:
+- Build production assets
+- Create a clean build directory
+- Install optimized Composer dependencies
+- Generate `build/wp-acf-markdown-field-{version}.zip`
+
+The generated ZIP file can be uploaded via WordPress Admin → Plugins → Add New → Upload Plugin.
+
+## Version History
+
+### 1.0.1
+- Fixed PHP 8.2+ deprecation warning for dynamic properties
+- Added proper property declarations
+
+### 1.0.0
+- Initial fork from freshsystems/wp-acf-markdown-field

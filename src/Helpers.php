@@ -13,7 +13,8 @@ class Helpers
     public function getPluginURI( string $path = '' )
     {
         $path = ltrim( $path, '/' );
-        return trailingslashit( FRESH_ACF_MARKDOWN_FIELD_PLUGIN_URL ) . $path;
+        // FRESH_ACF_MARKDOWN_FIELD_PLUGIN_URL already has trailing slash from plugin_dir_url()
+        return FRESH_ACF_MARKDOWN_FIELD_PLUGIN_URL . $path;
     }
 
     /**
@@ -44,7 +45,7 @@ class Helpers
             $asset = $dist_asset;
         }
         
-        return $this->getPluginURI( '/assets/' . $asset );
+        return $this->getPluginURI( $asset );
     }
 
     /**
@@ -65,7 +66,7 @@ class Helpers
         static $manifest = null;
         if ( null === $manifest )
         {
-            $manifest_path = $this->getPluginPath( 'assets/'.$dist_dirname.'mix-manifest.json' );
+            $manifest_path = $this->getPluginPath( $dist_dirname.'mix-manifest.json' );
             $manifest = file_exists( $manifest_path ) ? json_decode( file_get_contents( $manifest_path ), true ) : [];
         }
         // Check if the manifest file exists (i.e. during development it will not).
@@ -78,7 +79,7 @@ class Helpers
             // Note that laravel mix applies a leading slash to all paths, so include that in the lookup:
             $filename = '/' . substr( $filename, strlen($dist_dirname) );
             // If the manifest contains the requested file, return the hashed name (remembering to re-insert the 'dist/' dirname) else return false for no match.
-            return array_key_exists( $filename, $manifest ) ? ( rtrim($dist_dirname, '/') . $manifest[ $filename ]) : false;
+            return array_key_exists( $filename, $manifest ) ? ( $dist_dirname . ltrim($manifest[ $filename ], '/')) : false;
         }
         return false;
     }

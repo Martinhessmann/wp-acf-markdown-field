@@ -5,7 +5,7 @@
  * Description: Adds a Markdown field to Advanced Custom Fields.
  * Author: Fresh Systems
  * Author URI: https://freshsystems.co.uk
- * Version: 1.0.0
+ * Version: 1.0.6
  */
 
 namespace Fresh\ACFMarkdownField;
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or die();
 
 define( 'FRESH_ACF_MARKDOWN_FIELD_PLUGIN_URL', plugin_dir_url(__FILE__) );
 define( 'FRESH_ACF_MARKDOWN_FIELD_PLUGIN_PATH', plugin_dir_path(__FILE__) );
-define( 'FRESH_ACF_MARKDOWN_FIELD_PLUGIN_VERSION', '1.0.0' );
+define( 'FRESH_ACF_MARKDOWN_FIELD_PLUGIN_VERSION', '1.0.6' );
 
 /** 
 * Include the field type class

@@ -17,6 +17,9 @@ class MarkdownField extends acf_field
     /** @var \Fresh\ACFMarkdownField\Helpers $helpers */
     protected $helpers;
 
+    /** @var array $settings Plugin settings array */
+    protected $settings;
+
     /**
      *  This function will setup the field type data
      *
@@ -87,7 +90,7 @@ class MarkdownField extends acf_field
         // Scripts:
         wp_register_script( 'wp-acf-markdown-field-manifest', $this->helpers->getAssetsUrl('/dist/scripts/manifest.js'), [], null );
         wp_register_script( 'wp-acf-markdown-field-vendor', $this->helpers->getAssetsUrl('/dist/scripts/vendor.js'), ['wp-acf-markdown-field-manifest'], null );
-        wp_register_script( 'wp-acf-markdown-field', $this->helpers->getAssetsUrl('/dist/scripts/field.js'), ['acf-input', 'wp-acf-markdown-field-manifest', 'wp-acf-markdown-field-vendor' ], null );
+        wp_register_script( 'wp-acf-markdown-field', $this->helpers->getAssetsUrl('/dist/scripts/field.js'), ['acf-input', 'jquery', 'wp-acf-markdown-field-manifest', 'wp-acf-markdown-field-vendor' ], null );
         wp_enqueue_script( 'wp-acf-markdown-field-manifest');
         wp_enqueue_script( 'wp-acf-markdown-field-vendor');
         wp_enqueue_script( 'wp-acf-markdown-field');
